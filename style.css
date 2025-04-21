@@ -7,80 +7,103 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 100vh;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #f0f0f0;
     padding: 2rem;
 }
 
 #containerData {
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
     padding: 2rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    font-size: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #containerAlarme {
-    background-color: rgba(0, 0, 0, 0.25);
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     text-align: center;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #btnAlarme,
 #salvar {
-    padding: 0.8rem 1.5rem;
-    background-color: #00b4db;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     margin-top: 1rem;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 #btnAlarme:hover,
 #salvar:hover {
-    background-color: #0083b0;
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
 }
 
 #containerInfo {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     display: none;
 }
 
-#containerInfo span {
+#containerTempo span {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    margin: 10px 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffd700;
+}
+
+#mensagemTempo {
+    color: blue;
 }
 
 .info {
-    margin: 0.5rem 0;
+    margin: 0.6rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .info label {
-    margin-right: 0.5rem;
     flex: 1;
     text-align: right;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ddd;
 }
 
 .info input {
     flex: 1;
-    padding: 0.4rem;
-    border-radius: 6px;
-    border: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 8px;
     font-size: 1rem;
+    background-color: #ffffff10;
+    color: #fff;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.2s;
+}
+
+.info input:focus {
+    background-color: #ffffff20;
 }
