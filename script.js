@@ -28,7 +28,31 @@ function formatClock () {
 
 // Função para iniciar alarme
 function iniciarAlarme () {
+    const campos = [...document.querySelectorAll(".info")];
+    let resultado = [];
 
+    mostrarAlarme()
+
+    function mostrarAlarme () {
+        campos.forEach((campo) => {
+            const value = campo.querySelector("input").value;
+            const numero = Number(value);
+
+            if (numero === 0) {
+                return; // Pula esse campo
+            }
+
+            const label = campo.querySelector("label").textContent.replace(":", "");
+            
+            resultado.push(`${label}: ${value}`);
+        });
+        
+        return tempoAlarme.textContent = resultado.join(", ");
+    }
+
+    function iniciarContagem () {
+
+    }
 };
 
 const containerDate = document.querySelector("#containerData");
@@ -105,7 +129,6 @@ salvar.addEventListener("click", (event) => {
     // Se tudo for válido, inicia a lógica do alarme
     if (isValid) {
         iniciarAlarme();
-        containerTempo.style.display = 'none';
         containerInfo.style.display = 'none';
     }
 });
