@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="containerData"> <!-- Será adicionado a data e hora formatada --> </div>
+    <div id="containerAlarme">
+        <button id="btnAlarme">Definir Alarme</button>
+        <div id="containerInfo" style="display: none;">
+            <span>Tempo do Alarme:</span>
+            <div class="info">
+                <label for="dias">Dias:</label>
+                <input type="number" name="dias" id="dias" value="0">
+            </div>
+            <div class="info">
+                <label for="horas">Horas:</label>
+                <input type="number" name="horas" id="horas" value="0">
+            </div>
+            <div class="info">
+                <label for="minutos">Minutos:</label>
+                <input type="number" name="minutos" id="minutos" value="0">
+            </div>
+            <div class="info">
+                <label for="segundos">Segundos:</label>
+                <input type="number" name="segundos" id="segundos" value="0">
+            </div>
+            <button id="salvar">Salvar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

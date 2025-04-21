@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+#containerData {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#containerAlarme {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+#btnAlarme,
+#salvar {
+    padding: 0.8rem 1.5rem;
+    background-color: #00b4db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#btnAlarme:hover,
+#salvar:hover {
+    background-color: #0083b0;
+}
+
+#containerInfo {
+    margin-top: 1rem;
+    display: none;
+}
+
+#containerInfo span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.info {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info label {
+    margin-right: 0.5rem;
+    flex: 1;
+    text-align: right;
+}
+
+.info input {
+    flex: 1;
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
