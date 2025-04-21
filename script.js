@@ -31,28 +31,45 @@ function iniciarAlarme () {
     const campos = [...document.querySelectorAll(".info")];
     let resultado = [];
 
-    mostrarAlarme()
+    mostrarAlarme();
 
     function mostrarAlarme () {
         campos.forEach((campo) => {
-            const value = campo.querySelector("input").value;
-            const numero = Number(value);
+            const value = campo.querySelector("input").value; // Pegar o valor do input
+            const numero = Number(value); // Transformar o valor em número
 
             if (numero === 0) {
-                return; // Pula esse campo
+                return;
             }
 
-            const label = campo.querySelector("label").textContent.replace(":", "");
-            
-            resultado.push(`${label}: ${value}`);
+            const label = campo.querySelector("label").textContent.charAt(0).toLocaleLowerCase();
+
+            resultado.push(`${value}${label}`);
         });
+
+        const textoFormatado = resultado.join(" ");
         
-        return tempoAlarme.textContent = resultado.join(", ");
-    }
+        return tempoAlarme.textContent = textoFormatado;
+    };
+
+    iniciarContagem();
 
     function iniciarContagem () {
+        let totalSegundos = 0; // Transformar todos os valores em segundas para uma maior facilidade na manipulação
 
-    }
+        let dias = Number(document.querySelector("#dias").value);
+        let horas = Number(document.querySelector("#horas").value);
+        let minutos = Number(document.querySelector("#minutos").value);
+        let segundos = Number(document.querySelector("#segundos").value);
+
+        // Convertendo tudo para segundos
+        
+
+        // Atualiza a cada segundo
+        const contagem = setInterval (() => {
+
+        }, 1000);
+    };
 };
 
 const containerDate = document.querySelector("#containerData");
