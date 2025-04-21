@@ -64,15 +64,19 @@ body {
     display: none;
 }
 
-#containerTempo span {
-    display: block;
+#containerTempo {
     margin: 10px 0 10px 0;
+}
+
+#containerTempo span {
+    display: inline;
     font-size: 1.1rem;
     font-weight: 600;
     color: #ffd700;
 }
 
 #mensagemTempo {
+    display: block;
     color: blue;
 }
 

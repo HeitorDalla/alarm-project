@@ -33,8 +33,10 @@ function iniciarAlarme () {
 
 const containerDate = document.querySelector("#containerData");
 const containerAlarme = document.querySelector("#containerAlarme");
-const containerInfo = document.querySelector("#containerInfo");
 const containerTempo = document.querySelector("#containerTempo");
+const containerInfo = document.querySelector("#containerInfo");
+
+const tempoAlarme = document.querySelector("#tempoAlarme");
 
 // Delimitando que a cada segundo, o relogio formatará para o horário atual
 const intervaloTempo = setInterval(() => {
@@ -52,6 +54,8 @@ btnAlarme.addEventListener("click", (event) => {
         const input = campo.querySelector("input");
         input.value = '';
     });
+
+    tempoAlarme.innerHTML = '';
 
     if ((containerInfo.style.display === 'none' || containerInfo.style.display === "") && (containerTempo.style.display === 'none' || containerTempo.style.display === "")) {
         containerInfo.style.display = 'block';
@@ -101,6 +105,7 @@ salvar.addEventListener("click", (event) => {
     // Se tudo for válido, inicia a lógica do alarme
     if (isValid) {
         iniciarAlarme();
+        containerTempo.style.display = 'none';
         containerInfo.style.display = 'none';
     }
 });
