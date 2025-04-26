@@ -7,6 +7,8 @@ const containerInfo = document.querySelector("#containerInfo");
 
 const tempoAlarme = document.querySelector("#tempoAlarme");
 
+let contagem = null;
+
 // Função para formatar a data e hora utilizando closures
 function formatClock () {
     const date = new Date();
@@ -62,6 +64,10 @@ function iniciarAlarme () {
     iniciarContagem();
 
     function iniciarContagem () {
+        if (contagem) {
+            clearInterval(contagem);
+        }
+
         let dias = Number(document.querySelector("#dias").value);
         let horas = Number(document.querySelector("#horas").value);
         let minutos = Number(document.querySelector("#minutos").value);
@@ -70,7 +76,7 @@ function iniciarAlarme () {
         let totalSegundos = (dias * 86400) + (horas * 3600) + (minutos * 60) + segundos;
 
         // Atualiza a cada segundo
-        const contagem = setInterval (() => {
+        contagem = setInterval (() => {
             if (totalSegundos <= 0) {
                 clearInterval(contagem); // Parar a contagem
                 tempoAlarme.textContent = '⏰ Alarme disparado!';
@@ -101,6 +107,13 @@ const btnAlarme = document.querySelector("#btnAlarme");
 btnAlarme.addEventListener("click", (event) => {
     event.preventDefault();
 
+    // Caso a contagem estiver ativa
+    if (contagem) {
+        clearInterval(contagem);
+        contagem = null;
+        tempoAlarme.textContent = '';
+    }
+
     // Zerando todos os valores quando eu clicar no button de alarme
     const campos = [...document.querySelectorAll(".info")];
     campos.forEach((campo) => {
@@ -109,7 +122,6 @@ btnAlarme.addEventListener("click", (event) => {
     });
 
     tempoAlarme.innerHTML = '';
-
     if ((containerInfo.style.display === 'none' || containerInfo.style.display === "") && (containerTempo.style.display === 'none' || containerTempo.style.display === "")) {
         containerInfo.style.display = 'block';
         containerTempo.style.display = 'block';
