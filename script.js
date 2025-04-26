@@ -1,5 +1,12 @@
 "use strict";
 
+const containerDate = document.querySelector("#containerData");
+const containerAlarme = document.querySelector("#containerAlarme");
+const containerTempo = document.querySelector("#containerTempo");
+const containerInfo = document.querySelector("#containerInfo");
+
+const tempoAlarme = document.querySelector("#tempoAlarme");
+
 // Função para formatar a data e hora utilizando closures
 function formatClock () {
     const date = new Date();
@@ -55,29 +62,34 @@ function iniciarAlarme () {
     iniciarContagem();
 
     function iniciarContagem () {
-        let totalSegundos = 0; // Transformar todos os valores em segundas para uma maior facilidade na manipulação
-
         let dias = Number(document.querySelector("#dias").value);
         let horas = Number(document.querySelector("#horas").value);
         let minutos = Number(document.querySelector("#minutos").value);
         let segundos = Number(document.querySelector("#segundos").value);
 
-        // Convertendo tudo para segundos
-        
+        let totalSegundos = (dias * 86400) + (horas * 3600) + (minutos * 60) + segundos;
 
         // Atualiza a cada segundo
         const contagem = setInterval (() => {
+            if (totalSegundos <= 0) {
+                clearInterval(contagem); // Parar a contagem
+                tempoAlarme.textContent = '⏰ Alarme disparado!';
+                return;
+            }
 
+            totalSegundos --;
+
+            // Converter novamente os dias, horas, minutos e segundos
+            let restanteDias = Math.floor(totalSegundos / 86400);
+            let restanteHoras = Math.floor((totalSegundos % 86400) / 3600);
+            let restanteMinutos = Math.floor((totalSegundos % 3600) / 60);
+            let restanteSegundos = totalSegundos % 60;
+
+            tempoAlarme.textContent = `${restanteDias}d ${restanteHoras}h ${restanteMinutos}m ${restanteSegundos}s`
+            
         }, 1000);
     };
 };
-
-const containerDate = document.querySelector("#containerData");
-const containerAlarme = document.querySelector("#containerAlarme");
-const containerTempo = document.querySelector("#containerTempo");
-const containerInfo = document.querySelector("#containerInfo");
-
-const tempoAlarme = document.querySelector("#tempoAlarme");
 
 // Delimitando que a cada segundo, o relogio formatará para o horário atual
 const intervaloTempo = setInterval(() => {
@@ -111,7 +123,7 @@ btnAlarme.addEventListener("click", (event) => {
 const salvar = document.querySelector("#salvar");
 salvar.addEventListener("click", (event) => {
     event.preventDefault();
-    let isValid = true;
+    let isValid = true; // Variável de controle
 
     // Verificando se cada campo ja possui um valor
     const campos = [...document.querySelectorAll(".info")];
